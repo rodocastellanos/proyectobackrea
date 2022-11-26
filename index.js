@@ -18,21 +18,24 @@ const app = express();
 // 3) EL ALGORITMO QUE YO PROGRAMO PARA RESPONDER ESA PETICION
 
 console.log("Configurando Routers...");
-const userDummyRouter = require("./router/routerDummyUser");
+// const userDummyRouter = require("./router/routerDummyUser");
 const userRouter = require("./router/routerUser");
+const productoRouter = require("./router/routerProducto")
+
 
 //Configurar Routers en la APP
 app.use(bodyParser.json());
 app.use(cosr());
 
-app.use("/api/usuariosDummy", userDummyRouter);
+// app.use("/api/usuariosDummy", userDummyRouter);
 app.use("/api/usuarios", userRouter);
+app.use("/api/productos", productoRouter)
 
 app.get(
     "/",
 
     function (req, res) {
-        res.send("Home Page!");
+        res.send("Homeee Page!");
     }
 );
 
